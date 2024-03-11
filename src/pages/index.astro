@@ -10,9 +10,7 @@ import Card from "../components/Card.astro";
     <section class="h-screen flex flex-col justify-center" id="main-section">
       <div class="mx-10 text-center max-[580px]:mx-5">
         <div class="flex flex-col justify-center items-center">
-          <h1 class="title font-bold">
-          Real Estate Agency 
-          </h1>
+          <h1 class="title font-bold">Real Estate Agency</h1>
           <p class="text-lg subtitle">
             Compra y venta de propiedades con la mejor asesoría
           </p>
@@ -41,12 +39,15 @@ import Card from "../components/Card.astro";
       <div class="w-1/2"></div>
     </section> -->
     <section
-      class="flex flex-col justify-center mx-10 max-[580px]:mx-5"
+      class="flex flex-col justify-center mx-10 max-[580px]:mx-5 relative py-10"
       id="main-section"
     >
+      <div class="glow">
+        <img src="/images/glow-up.svg" alt="" />
+      </div>
       <div class="flex flex-col justify-center items-center">
         <h1 class="title font-bold text-center">
-         Con los mejores servicios para ti
+          Con los mejores servicios para ti
         </h1>
         <p class="text-lg subtitle mb-10 text-center max-w-screen-lg">
           There are many variations available, but the majority have suffered
@@ -57,7 +58,7 @@ import Card from "../components/Card.astro";
       </div>
     </section>
     <section
-      class="flex flex-col justify-center mx-10 max-[580px]:mx-5 mt-52"
+      class="flex flex-col justify-center mx-10 max-[580px]:mx-5 py-10"
       id="main-section"
     >
       <div class="flex flex-col justify-center items-center">
@@ -76,12 +77,27 @@ import Card from "../components/Card.astro";
       class="h-screen flex flex-col justify-center items-center mx-10 max-[580px]:mx-5"
       id="services-section"
     >
+      <h1 class="title font-bold text-center">
+        Contáctanos para más información
+      </h1>
+      <p class="text-lg subtitle mb-10 text-center max-w-screen-lg">
+        Pon tus datos y nos pondremos en contacto contigo
+      </p>
       <Form />
     </section>
   </main>
 </DefaultLayout>
 
 <style>
+  .glow {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+  }
   .bg-stars {
     background: transparent;
     width: 100%;

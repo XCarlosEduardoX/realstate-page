@@ -3,9 +3,6 @@ import Button from "../components/Button.astro";
 ---
 
 <div class="form-container bg">
-    <h1 class="subtitle">
-        Déjanos tus datos y nos pondremos en contacto contigo lo antes posible.
-    </h1>
     <form class="form">
         <div class="form-group">
             <label for="email">Nombre</label>
@@ -69,25 +66,6 @@ import Button from "../components/Button.astro";
         filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
             var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert)
             var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-    }
-    .form-containe::after {
-        content: "";
-        background: linear-gradient(
-            to right,
-            #2e3c51 0,
-            #2e3c51 34%,
-            #2e3c51 49%,
-            #fff 57%,
-            #fff 64%,
-            #a87ffb 66%,
-            #25a6e9 100%
-        );
-        opacity: 0.5;
-        pointer-events: none;
-        position: absolute;
-        left: 8rem;
-        right: 8rem;
-        top: 0.5rem;
     }
 
     .form-container button:active {
@@ -177,6 +155,10 @@ import Button from "../components/Button.astro";
         .form-container {
             width: 100% !important;
         }
+        .form-container::before {
+            top: -5.5rem;
+            background: linear-gradient(90deg, #9d6ff8 17.33%, #28b4ff 100.47%);
+        }
     }
     @media (max-width: 490px) {
         .form-container {
@@ -185,7 +167,7 @@ import Button from "../components/Button.astro";
     }
     @media (max-width: 768px) {
         .form-container {
-            width: 70% !important;
+            width: 95% !important;
         }
     }
 
