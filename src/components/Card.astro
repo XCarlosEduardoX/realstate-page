@@ -4,7 +4,7 @@
 
 <style>
     .card {
-        width: 40%;
+        width: 90%;
         height: 350px;
         background-color: var(--bg);
         border-radius: 3rem;
@@ -35,6 +35,11 @@
         filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
             var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert)
             var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+    }
+    @media (min-width: 1050px) {
+        .card {
+            width: 50%;
+        }
     }
     @media (max-width: 780px) {
         .card {
