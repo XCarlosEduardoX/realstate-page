@@ -196,7 +196,7 @@
 <script>
     const gridCells = document.querySelectorAll(".gridCell");
 
-    function handleMouseMove(e) {
+    function handleMouseMove(this: any, e: { pageX: number; pageY: number }) {
         const x = e.pageX - this.offsetLeft;
         const y = e.pageY - this.offsetTop;
 
@@ -205,6 +205,11 @@
     }
 
     gridCells.forEach((gridCell) => {
-        gridCell.addEventListener("mousemove", handleMouseMove);
+        // Ensure 'gridCell' is treated as an HTMLElement
+        if (gridCell instanceof HTMLElement) {
+            gridCell.addEventListener("mousemove", function (e) {
+                handleMouseMove.call(this, e);
+            });
+        }
     });
 </script>
