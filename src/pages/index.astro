@@ -3,25 +3,34 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 import Form from "../components/Form.astro";
 import BentoGrid from "../components/BentoGrid.astro";
 import Card from "../components/Card.astro";
-import FloatButton from "../components/FloatButton.astro";
+import MasonryGallery from "../components/MasonryGallery.astro";
 import Button from "../components/Button.astro";
 ---
 
 <DefaultLayout title="Home">
-  <section class="h-dvh flex flex-col justify-center" id="main-section">
-    <div class="mx-44 text-center max-[580px]:mx-5">
-      <div class="flex flex-row items-start">
-        <div class="sm:w-1/2 w-full text-left">
-          <h1 class="title font-bold" id="main">Real Estate Agency</h1>
-          <p class="text-lg subtitle">
-            Descubre la mejor opción para ti y tu familia en el mejor lugar para
-            vivir
-          </p>
-          <a class="flex justify-start mt-10" href="/estates">
-            <Button text="Conoce nuestros inmuebles" />
-          </a>
+  <section
+    class="h-dvh flex flex-col justify-center items-center max-[520px]:text-center"
+    id="main-section"
+  >
+    <div class="h-full mx-20 max-[520px]:mx-5 lg:mx-40">
+      <div class="flex flex-row h-full">
+        <div class="w-1/2 max-[780px]:w-full">
+          <div class="flex flex-col justify-center h-full">
+            <h1 class="title font-bold" id="main">Real Estate Agency</h1>
+            <p class="text-lg subtitle">
+              Descubre la mejor opción para ti y tu familia en el mejor lugar
+              para vivir
+            </p>
+            <a class="mt-10 max-[520px]:self-center" href="/estates">
+              <Button text="Conoce nuestros inmuebles" />
+            </a>
+          </div>
         </div>
-        <div class="w-1/2 hidden">estop se oculta con el movil</div>
+        <div class="h-full w-1/2 max-[780px]:hidden ml-20">
+          <div class="flex flex-col justify-center h-full">
+            <MasonryGallery />
+          </div>
+        </div>
       </div>
     </div>
   </section>
