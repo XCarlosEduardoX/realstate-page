@@ -4,17 +4,25 @@ import Form from "../components/Form.astro";
 import BentoGrid from "../components/BentoGrid.astro";
 import Card from "../components/Card.astro";
 import FloatButton from "../components/FloatButton.astro";
+import Button from "../components/Button.astro";
 ---
 
 <DefaultLayout title="Home">
   <FloatButton />
   <section class="h-screen flex flex-col justify-center" id="main-section">
-    <div class="mx-10 text-center max-[580px]:mx-5">
-      <div class="flex flex-col justify-center items-center">
-        <h1 class="title font-bold">Real Estate Agency</h1>
-        <p class="text-lg subtitle">
-          Compra y venta de propiedades con la mejor asesoría
-        </p>
+    <div class="mx-44 text-center max-[580px]:mx-5">
+      <div class="flex flex-row items-start">
+        <div class="sm:w-1/2 w-full text-left">
+          <h1 class="title font-bold" id="main">Real Estate Agency</h1>
+          <p class="text-lg subtitle">
+            Descubre la mejor opción para ti y tu familia en el mejor lugar para
+            vivir
+          </p>
+          <a class="flex justify-start mt-10" href="/estates">
+            <Button text="Conoce nuestros inmuebles" />
+          </a>
+        </div>
+        <div class="w-1/2 hidden">estop se oculta con el movil</div>
       </div>
     </div>
   </section>
@@ -86,6 +94,10 @@ import FloatButton from "../components/FloatButton.astro";
 </DefaultLayout>
 
 <style>
+  #main {
+    font-size: 3.5rem;
+    line-height: 1.2;
+  }
   .glow {
     z-index: -1;
     position: absolute;

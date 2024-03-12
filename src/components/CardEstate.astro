@@ -1,0 +1,84 @@
+---
+interface Props {
+    data: any;
+}
+
+const { data } = Astro.props;
+
+const price = (price: number) => {
+    return new Intl.NumberFormat("es-CO", {
+        style: "currency",
+        currency: "MXN",
+    }).format(price);
+};
+---
+
+<div class="my-32 rounded-3xl" id="main-section">
+    <div
+        class="flex lg:flex-row max-[580px]:flex-col flex-row items-center justify-center sm:px-10"
+    >
+        <div
+            class="lg:w-1/2 text-left flex flex-col justify-center lg:pr-20 sm:px-5"
+        >
+            {
+                data.isRent ? (
+                    <p class="text-lg font-bold">En renta</p>
+                ) : (
+                    <p class="text-lg font-bold ">Compraventa</p>
+                )
+            }
+            <h1 class="title font-bold" id="main">
+                {data.location.neighborhood}
+            </h1>
+            <h1 class="title font-bold" id="main">
+                {price(data.price)}
+            </h1>
+            <p class="text-lg subtitle">
+                {data.description}
+            </p>
+        </div>
+        <div class="lg:w-1/2 h-1/3 img-estate max-[580px]:pt-5">
+            <img
+                src={data.image}
+                alt="main"
+                class="w-full object-cover rounded-3xl"
+            />
+        </div>
+    </div>
+</div>
+
+<style>
+    .img-estate {
+        position: relative;
+    }
+
+    .img-estate::before {
+        content: "";
+        background: linear-gradient(90deg, #9d6ff8 17.33%, #28b4ff 100.47%);
+        opacity: 0.5;
+        pointer-events: none;
+        position: absolute;
+        left: 8rem;
+        right: 8rem;
+        top: 0.5rem;
+        bottom: 0;
+        z-index: -10;
+        transform: translate3d(var(--tw-translate-x), var(--tw-translate-y), 0)
+            rotate(var(--tw-rotate)) skew(var(--tw-skew-x))
+            skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+            scaleY(var(--tw-scale-y));
+        --tw-blur: blur(64px);
+        filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+            var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert)
+            var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+    }
+
+    @media (max-width: 768px) {
+        p {
+            font-size: 0.8rem;
+        }
+        h1 {
+            font-size: 1.5rem;
+        }
+    }
+</style>

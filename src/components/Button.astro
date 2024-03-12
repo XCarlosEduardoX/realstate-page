@@ -6,14 +6,15 @@ interface Props {
 const { text } = Astro.props;
 ---
 
-<button class="btn">
+<button class="btn" data-click-button>
     <span class="text">{text}</span>
 </button>
 
 <style>
     .btn {
         border: none;
-        width: 10em;
+        width: auto;
+        padding: 0 2em;
         height: 4em;
         border-radius: 3em;
         display: flex;
@@ -51,3 +52,14 @@ const { text } = Astro.props;
         transform: scale(1.2);
     }
 </style>
+
+<script>
+    // Encuentra nuestro componente en la página.
+    const buttons = document.querySelectorAll("[data-click-button]");
+    // Agrega event listeners para disparar confetti cuando un botón es clickeado.
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            console.log("Button clicked!");
+        });
+    });
+</script>
