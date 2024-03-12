@@ -1,5 +1,5 @@
 <div class="wrapper w-64">
-    <div class="grid1 gridCell" style="--clr:#9a67ff">
+    <div class="grid1 gridCell">
         <div class="data w-full h-full p-8 max-[580px]:p-2">
             <div
                 class="flex flex-col justify-center h-full max-[580px]:flex-col-reverse"
@@ -18,7 +18,7 @@
             </div>
         </div>
     </div>
-    <div class="grid2 gridCell" style="--clr:#9a67ff">
+    <div class="grid2 gridCell">
         <div class="data w-full h-full px-8 max-[580px]:p-2">
             <div class="flex flex-col h-full items-center justify-center">
                 <div class="text-left">
@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-    <div class="grid3 gridCell" style="--clr:#9a67ff">
+    <div class="grid3 gridCell">
         <div class="data w-full h-full px-8 max-[580px]:p-2">
             <div class="flex flex-col h-full items-center justify-center">
                 <div class="text-left">
@@ -103,7 +103,7 @@
         top: var(--top);
         left: var(--left);
         transform: translate(-50%, -50%);
-        background: radial-gradient(var(--clr), transparent, transparent);
+        background: radial-gradient(#d07cd8, transparent, transparent);
         height: 500px;
         width: 500px;
         opacity: 0;
@@ -189,21 +189,39 @@
 </style>
 <script>
     const gridCells = document.querySelectorAll(".gridCell");
-
-    function handleMouseMove(this: any, e: { pageX: number; pageY: number }) {
-        const x = e.pageX - this.offsetLeft;
-        const y = e.pageY - this.offsetTop;
-
-        this.style.setProperty("--left", x + "px");
-        this.style.setProperty("--top", y + "px");
-    }
-
     gridCells.forEach((gridCell) => {
         // Ensure 'gridCell' is treated as an HTMLElement
         if (gridCell instanceof HTMLElement) {
             gridCell.addEventListener("mousemove", function (e) {
-                handleMouseMove.call(this, e);
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left; // Coordenada X del mouse dentro del gridCell
+                const y = e.clientY - rect.top; // Coordenada Y del mouse dentro del gridCell
+
+                this.style.setProperty("--left", x + "px");
+                this.style.setProperty("--top", y + "px");
             });
         }
     });
+
+    // const gridCells = document.querySelectorAll(".gridCell");
+
+    // function handleMouseMove(this: any, e: { pageX: number; pageY: number }) {
+    //     const x = e.pageX - this.offsetLeft - this.offsetWidth / 2;
+    //     const y = e.pageY - this.offsetTop - this.offsetHeight / 2;
+
+    //     // const x = e.pageX - this.offsetLeft - 1030;
+    //     // const y = e.pageY - this.offsetTop - this.offsetHeight / 2;
+
+    // this.style.setProperty("--left", x + "px");
+    // this.style.setProperty("--top", y + "px");
+    // }
+
+    // gridCells.forEach((gridCell) => {
+    //     // Ensure 'gridCell' is treated as an HTMLElement
+    //     if (gridCell instanceof HTMLElement) {
+    //         gridCell.addEventListener("mousemove", function (e) {
+    //             handleMouseMove.call(this, e);
+    //         });
+    //     }
+    // });
 </script>
