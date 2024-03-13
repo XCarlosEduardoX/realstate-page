@@ -9,7 +9,9 @@ import Button from "../components/Button.astro";
 
 <DefaultLayout title="Home">
   <section
-    class="h-dvh flex flex-col justify-center items-center max-[520px]:text-center"
+    class="h-dvh flex flex-col justify-center items-center max-[520px]:text-center
+    delay-[100ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0"
+    data-taos-offset="100"
     id="main-section"
   >
     <div class="h-full mx-20 max-[520px]:mx-5 lg:mx-40">
@@ -56,7 +58,9 @@ import Button from "../components/Button.astro";
       <div class="w-1/2"></div>
     </section> -->
   <section
-    class="flex flex-col justify-center mx-10 max-[580px]:mx-5 relative my-10"
+    class="flex flex-col justify-center mx-10 max-[580px]:mx-5 relative my-10
+    delay-[400ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0"
+    data-taos-offset="100"
     id="main-section"
   >
     <div class="flex flex-col justify-center items-center">
@@ -72,7 +76,9 @@ import Button from "../components/Button.astro";
     </div>
   </section>
   <section
-    class="flex flex-col justify-center mx-10 max-[580px]:mx-5 my-40"
+    class="flex flex-col justify-center mx-10 max-[580px]:mx-5 my-40
+    delay-[400ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0"
+    data-taos-offset="100"
     id="main-section"
   >
     <div class="flex flex-col justify-center items-center">
@@ -88,7 +94,9 @@ import Button from "../components/Button.astro";
     </div>
   </section>
   <section
-    class="flex flex-col justify-center items-center mx-10 max-[580px]:mx-5 my-40"
+    class="flex flex-col justify-center items-center mx-10 max-[580px]:mx-5 my-40
+    delay-[400ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0"
+    data-taos-offset="100"
     id="services-section"
   >
     <h1 class="title font-bold text-center">
@@ -178,44 +186,5 @@ import Button from "../components/Button.astro";
 <style>
   .button-contact {
     cursor: pointer;
-  }
-  #main {
-    font-size: 3.5rem;
-    line-height: 1.2;
-  }
-  .glow {
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 100%;
-  }
-  .bg-stars {
-    background: transparent;
-    width: 100%;
-    height: auto;
-  }
-
-  .bg-stars::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 500%;
-    background-image: radial-gradient(#ffffff 1.5px, transparent 1%);
-    background-size: 50px 50px;
-    opacity: 0.5;
-    animation: animStar 135s linear infinite forwards;
-  }
-
-  @keyframes animStar {
-    from {
-      transform: translateY(0);
-    }
-
-    to {
-      transform: translateY(-135rem);
-    }
   }
 </style>
